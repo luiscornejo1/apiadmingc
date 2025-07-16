@@ -1,0 +1,36 @@
+spring:
+  web:
+    locale: es
+    locale-resolver: fixed
+  messages:
+    basename: messages
+    encoding: UTF-8
+    locale: es
+    fallback-to-system-locale: false
+  jackson:
+    time-zone: America/Lima
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.0.101:5432/grupocienciasbd
+    username: grupociencias
+    password: postgres$2021@gcbd
+    hikari:
+    # Tamaño máximo del pool de conexiones
+     maximum-pool-size: 50
+     # Número mínimo de conexiones inactivas en el pool
+     minimum-idle: 10
+     # Tiempo máximo de espera para adquirir una conexión antes de que falle
+     connection-timeout: 30000 # 30 segundos
+     # Tiempo máximo que una conexión puede estar inactiva antes de ser removida
+     idle-timeout: 600000 # 10 minutos
+     # Tiempo de vida máximo de una conexión en el pool
+     max-lifetime: 1800000 # 30 minutos
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+urls:
+  email: https://grupociencias.edu.pe/emailGrupoCiencias-1/api/emailGrupoCiencias/email/enviar
